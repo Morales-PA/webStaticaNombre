@@ -23,6 +23,15 @@ const greetings = [
 
 const greetingElement = document.getElementById('greeting');
 const changeButton = document.getElementById('changeGreeting');
+    
+const greetingChangerButton = document.getElementById("greetingChanger")
+greetingChangerButton.addEventListener('click', changeMessage);
+
+function changeMessage() {
+    
+    document.getElementById("credits").innerHTML = document.getElementById("messageFromUser").value
+
+}
 
 function getRandomGreeting() {
     const randomIndex = Math.floor(Math.random() * greetings.length);

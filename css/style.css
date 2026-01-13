@@ -79,3 +79,28 @@ body {
         font-size: 1rem;
     }
 }
+
+
+#messageFromUser {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+#greetingChanger {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#idGreetingChanger:hover {
+    background-color: #0056b3;
+}
