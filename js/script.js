@@ -1,4 +1,5 @@
 const greetings = [
+
     { language: "English", text: "Hello World!" },
     { language: "Spanish", text: "¡Hola Mundo!" },
     { language: "French", text: "Bonjour le Monde!" },
@@ -19,19 +20,11 @@ const greetings = [
     { language: "Thai", text: "สวัสดีโลก!" },
     { language: "Vietnamese", text: "Xin chào thế giới!" },
     { language: "Polish", text: "Witaj Świecie!" }
+
 ];
 
 const greetingElement = document.getElementById('greeting');
 const changeButton = document.getElementById('changeGreeting');
-    
-const greetingChangerButton = document.getElementById("greetingChanger")
-greetingChangerButton.addEventListener('click', changeMessage);
-
-function changeMessage() {
-    
-    document.getElementById("credits").innerHTML = document.getElementById("messageFromUser").value
-
-}
 
 function getRandomGreeting() {
     const randomIndex = Math.floor(Math.random() * greetings.length);
@@ -56,5 +49,5 @@ changeButton.addEventListener('click', changeGreeting);
 document.addEventListener('keydown', (event) => {
     if (event.code === 'Space' || event.code === 'Enter') {
         changeGreeting();
-    }
+     }
 });
