@@ -1,3 +1,7 @@
+window.onload = function() {
+    changeGreeting()    
+}
+
 const greetings = [
 
     { language: "English", text: "Hello World!" },
@@ -24,7 +28,7 @@ const greetings = [
 ];
 
 const greetingElement = document.getElementById('greeting');
-const changeButton = document.getElementById('changeGreeting');
+// const changeButton = document.getElementById('changeGreeting');
 
 function getRandomGreeting() {
     const randomIndex = Math.floor(Math.random() * greetings.length);
@@ -43,7 +47,7 @@ function changeGreeting() {
 }
 
 // Add click event listener to the button
-changeButton.addEventListener('click', changeGreeting);
+// changeButton.addEventListener('click', changeGreeting);
 
 // Optional: Add keyboard support (Space or Enter key)
 document.addEventListener('keydown', (event) => {
