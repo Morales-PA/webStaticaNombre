@@ -11,11 +11,23 @@
         <img src="images/wikipedia.png" alt="Wikipedia">
         <div class="credits" id="credits">Juan MORALES</div>
         <br>
-        <div id="greeting" class="greeting">Hello</div>
+
+    <?php  
+
+        if  ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["textWrittenByUser"])) {
+            echo "<div id='greeting' class='greeting'>" . $_POST["textWrittenByUser"] . "</div>";    
+        }
+
+    ?>
+
         <form action="" method="post">
+            <input type="text" name="textWrittenByUser" id="textWrittenByUser">
             <input type="submit" id="changeGreeting" class="change-btn">
         </form>
+        
     </div>
+
     <script src="js/script.js"></script>
+
 </body>
 </html>
