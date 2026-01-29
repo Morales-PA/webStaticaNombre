@@ -12,12 +12,34 @@
         <div class="credits" id="credits">Juan MORALES</div>
         <br>
 
-    <?php  
+    <?php
+        // Database connection parameters
+        $host = 'localhost';     // or your server IP
+        $dbname = 'greetingsDB';  // Replace with your actual database name
+        $username = 'usuario';     // Replace with your MySQL username
+        $password = 'safePassword';     // Replace with your MySQL password
 
-        if  ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["textWrittenByUser"])) {
-            echo "<div id='greeting' class='greeting'>" . $_POST["textWrittenByUser"] . "</div>";    
+        try {
+            // Create a PDO instance
+            $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            // Query to select a random greeting
+            $stmt = $pdo->query("SELECT * FROM greetings ORDER BY RAND() LIMIT 1");
+            $greeting = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Check if the greeting exists
+            if ($greeting) {
+                $language = $greeting['language'];
+                $message = $greeting['message'];
+                echo "<div id='greeting' class='greeting'>$message (in $language)</div>";
+            } else {
+                echo "<div id='greeting' class='greeting'>No greetings found!</div>";
+            }
+
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
         }
-
     ?>
 
         <form action="" method="post">
